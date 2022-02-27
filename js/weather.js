@@ -40,9 +40,6 @@ async function doAPICall(city,zip){
     title = document.getElementById('title')
     title.innerText=`${result.data.weather[0].main} - ${result.data.weather[0].description}`
 
-    // desc = document.getElementById('desc')
-    // desc.innerText=result.data.weather[0].description
-
     high = document.getElementById('high')
     high.innerText=`High: ${convertToFarenheit(result.data.main.temp_max)}`
 
@@ -57,17 +54,10 @@ async function doAPICall(city,zip){
 };
 
 var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-var alertTrigger = document.getElementById('liveAlertBtn')
 
 function alert(message, type) {
   var wrapper = document.createElement('div')
   wrapper.innerHTML = '<div style="width: 20rem;" class="alert alert-' + type + ' alert-dismissible mx-5 mt-3" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
 
   alertPlaceholder.append(wrapper)
-}
-
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', function () {
-    alert('Nice, you triggered this alert message!', 'success')
-  })
 }
